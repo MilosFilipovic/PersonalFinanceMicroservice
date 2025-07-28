@@ -1,0 +1,104 @@
+Rules:
+  - Title: "When beneficiary name contains 'chevron' or 'shell' categorize transaction as 4 (Auto & Transport / Gas & Fuel)"
+    CatCode: 4
+    Predicate: "beneficiary-name LIKE '%chevron%' OR beneficiary-name LIKE '%shell%'"
+
+  - Title: "When mcc is 5811 (Caterers) categorize transaction as 39 (Food & Dining / Restaurants)"
+    CatCode: 39
+    Predicate: "mcc = 5811"
+
+  - Title: "When description is Internet bill categorize transaction as 10 (Bills & Utilities / Internet)"
+    CatCode: 10
+    Predicate: "description LIKE '%Internet bill%'"
+
+  - Title: "When beneficiary name contains 'Fit and Fun' categorize transaction as I (Health & Fitness)"
+    CatCode: I
+    Predicate: "beneficiary-name LIKE '%Fit and Fun%'"
+  
+  - Title: "When description is Supermarket shopping categorize transaction as P (Shopping)"
+    CatCode: P
+    Predicate: "description LIKE '%Supermarket shopping%'"
+
+  - Title: "When description contains 'Netflix' categorize transaction as 21 (Entertainment / Movies & DVDs)"
+    CatCode: 21
+    Predicate: "description LIKE '%Netflix%'"
+
+  - Title: "When description contains 'Spotify' categorize transaction as 22 (Entertainment / Music)"
+    CatCode: 22
+    Predicate: "description LIKE '%Spotify%'"
+
+  - Title: "When description contains 'Rent' categorize transaction as 58 (Home / Mortgage & Rent)"
+    CatCode: 58
+    Predicate: "description LIKE '%Rent%'"
+
+  - Title: "When description contains 'Electricity Bill' categorize transaction as 13 (Bills & Utilities / Utilities)"
+    CatCode: 13
+    Predicate: "description LIKE '%Electricity Bill%'"
+
+  - Title: "When description contains 'Water Bill' categorize transaction as 13 (Bills & Utilities / Utilities)"
+    CatCode: 13
+    Predicate: "description LIKE '%Water Bill%'"
+
+  - Title: "When beneficiary name contains 'Booking.com' categorize transaction as 104 (Travel / Hotel)"
+    CatCode: 104
+    Predicate: "beneficiary-name LIKE '%Booking.com%'"
+
+  - Title: "When beneficiary name contains 'Uber' categorize transaction as 105 (Travel / Rental Car & Taxi)"
+    CatCode: 105
+    Predicate: "beneficiary-name LIKE '%Uber%'"
+
+  - Title: "When description contains 'Salary' categorize transaction as 62 (Income / Paycheck)"
+    CatCode: 62
+    Predicate: "description LIKE '%Salary%'"
+
+  - Title: "When description contains 'Credit Card Payment' categorize transaction as 100 (Financial / Credit Card Payment)"
+    CatCode: 100
+    Predicate: "description LIKE '%Credit Card Payment%'"
+
+  - Title: "When beneficiary name contains 'Amazon' categorize transaction as 90 (Shopping / Electronics & Software)"
+    CatCode: 90
+    Predicate: "beneficiary-name LIKE '%Amazon%'"
+
+  - Title: "When beneficiary name contains 'Lidl' categorize transaction as 38 (Groceries)"
+    CatCode: 38
+    Predicate: "beneficiary-name LIKE '%Lidl%'"
+
+  - Title: "When beneficiary name contains 'Mercator' categorize transaction as 38 (Groceries)"
+    CatCode: 38
+    Predicate: "beneficiary-name LIKE '%Mercator%'"
+
+  - Title: "When beneficiary name contains 'H&M' categorize transaction as 89 (Shopping / Clothing)"
+    CatCode: 89
+    Predicate: "beneficiary-name LIKE '%H&M%'"
+
+  - Title: "When description contains 'pharmacy' categorize transaction as 49 (Health & Fitness / Pharmacy)"
+    CatCode: 49
+    Predicate: "description LIKE '%pharmacy%'"
+
+  - Title: "When description contains 'gym' categorize transaction as 47 (Health & Fitness / Gym)"
+    CatCode: 47
+    Predicate: "description LIKE '%gym%'"
+
+  - Title: "When beneficiary name contains 'IKEA' categorize transaction as 53 (Home / Home Improvement)"
+    CatCode: 53
+    Predicate: "beneficiary-name LIKE '%IKEA%'"
+
+  - Title: "When beneficiary name contains 'McDonald' categorize transaction as 39 (Food & Dining / Restaurants)"
+    CatCode: 39
+    Predicate: "beneficiary-name LIKE '%McDonald%'"
+
+  - Title: "When description contains 'rent' categorize transaction as 58 (Home / Mortgage & Rent)"
+    CatCode: 58
+    Predicate: "description LIKE '%rent%'"
+
+  - Title: When description is Loan payment categorize transaction as 77
+    CatCode: 77
+    Predicate: "description LIKE '%Loan Payment%'"
+
+  - Title: When description is Internet bill categorize transaction as 10
+    CatCode: 10
+    Predicate: "description LIKE '%Internet bill%'"
+
+  - Title: When description is Phone categorize transaction as 11
+    CatCode: 11
+    Predicate: "description LIKE '%Phone%'"
