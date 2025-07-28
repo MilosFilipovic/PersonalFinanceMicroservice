@@ -109,22 +109,28 @@ namespace WebAPI.Controllers
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetByDateRange(
-            [FromQuery] DateTime startDate,
-            [FromQuery] DateTime endDate,
-            [FromQuery] int pageNumber = 1,
-            [FromQuery] int pageSize = 10,
-            [FromQuery] List<TransactionKind>? kinds = null)
+    [FromQuery] DateTime startDate,
+    [FromQuery] DateTime endDate,
+    [FromQuery] int pageNumber = 1,
+    [FromQuery] int pageSize = 10,
+    [FromQuery] List<TransactionKind>? kinds = null,
+
+    // <<< DODAVAMO >>>
+    [FromQuery(Name = "sort-by")] string? sortBy = null,
+    [FromQuery(Name = "sort-order")] string sortOrder = "asc"
+)
         {
-
-            
-
             var query = new GetTransactionsByDateRangeQuery
             {
                 StartDate = startDate,
                 EndDate = endDate,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
-                Kinds = kinds
+                Kinds = kinds,
+
+                // <<< POSTAVLJAMO >>
+                SortBy = sortBy,
+                SortOrder = sortOrder.ToLower()
             };
 
             try
@@ -134,7 +140,6 @@ namespace WebAPI.Controllers
             }
             catch (FluentValidation.ValidationException vex)
             {
-                
                 var problems = new ValidationProblemDetails(vex.Errors
                     .GroupBy(e => e.PropertyName)
                     .ToDictionary(
@@ -148,16 +153,16 @@ namespace WebAPI.Controllers
             }
             catch (Exception ex)
             {
-                
                 var problem = new ProblemDetails
                 {
                     Status = StatusCodes.Status500InternalServerError,
                     Title = "An unexpected error occurred",
-                    Detail = ex.Message 
+                    Detail = ex.Message
                 };
                 return StatusCode(StatusCodes.Status500InternalServerError, problem);
             }
         }
+
 
         [HttpPost("{id}/categorize")]
         [Consumes("application/json")]

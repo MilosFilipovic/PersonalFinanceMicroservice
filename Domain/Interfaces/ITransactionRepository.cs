@@ -21,8 +21,15 @@
         Task AddRangeAsync(IEnumerable<Transaction> transactions, CancellationToken cancellationToken = default);
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 
-        Task<(IEnumerable<Transaction> Items, int TotalCount)>GetByDateRangeAsync(DateTime startDate, DateTime endDate, int pageNumber, 
-                                                                    int pageSize, List<TransactionKind>? kinds = null, CancellationToken ct = default);
+        Task<(IEnumerable<Transaction> Items, int TotalCount)> GetByDateRangeAsync(
+    DateTime startDate,
+    DateTime endDate,
+    int pageNumber,
+    int pageSize,
+    List<TransactionKind>? kinds,
+    string? sortBy,
+    string sortOrder,
+    CancellationToken cancellationToken);
 
         Task<IEnumerable<Transaction>> GetForAnalyticsAsync( string? categoryCode, DateTime? startDate, DateTime? endDate, Direction? direction, CancellationToken ct = default);
 

@@ -35,39 +35,71 @@
         }
 
 
-        public async Task<(IEnumerable<Transaction> Items, int TotalCount)> GetByDateRangeAsync(DateTime startDate, DateTime endDate, int pageNumber,
-                                                                                        int pageSize, List<TransactionKind>? kinds = null, CancellationToken ct = default)
+        public async Task<(IEnumerable<Transaction> Items, int TotalCount)> GetByDateRangeAsync(
+    DateTime startDate,
+    DateTime endDate,
+    int pageNumber,
+    int pageSize,
+    List<TransactionKind>? kinds = null,
+    string? sortBy = null,
+    string sortOrder = "asc",
+    CancellationToken ct = default)
         {
             var start = startDate.Date;
             var end = endDate.Date.AddDays(1);
 
-            var query = _context.Transactions
+            IQueryable<Transaction> query = _context.Transactions
                 .Include(t => t.Splits)
-                .AsQueryable();
+                .Where(t => t.Date >= start && t.Date <= end);
 
-            
-            query = query.Where(t => t.Date >= start && t.Date <= end);
-
-            
-            if (kinds != null && kinds.Any())
-            {
+            if (kinds?.Any() == true)
                 query = query.Where(t => kinds.Contains(t.Kind));
+
+            // ------ SORTIRANJE ------
+            var desc = sortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase);
+            if (!string.IsNullOrWhiteSpace(sortBy))
+            {
+                switch (sortBy.Trim().ToLower())
+                {
+                    case "date":
+                        query = desc
+                            ? query.OrderByDescending(t => t.Date)
+                            : query.OrderBy(t => t.Date);
+                        break;
+                    case "amount":
+                        query = desc
+                            ? query.OrderByDescending(t => t.Amount)
+                            : query.OrderBy(t => t.Amount);
+                        break;
+                    case "beneficiaryname":
+                    case "beneficiary-name":
+                        query = desc
+                            ? query.OrderByDescending(t => t.BeneficiaryName)
+                            : query.OrderBy(t => t.BeneficiaryName);
+                        break;
+                    // dodaj ostala polja po potrebi...
+                    default:
+                        // neprepoznato polje → default sortiranje
+                        query = query.OrderByDescending(t => t.Date);
+                        break;
+                }
             }
-            
+            else
+            {
+                // default, ako nije zadan sortBy
+                query = query.OrderByDescending(t => t.Date);
+            }
 
-            var sql = query.ToQueryString();
-            Console.WriteLine("GENERATED SQL:\n" + sql);
-
+            // ------ PAGINACIJA ------
             var total = await query.CountAsync(ct);
-
             var items = await query
-                .OrderByDescending(t => t.Date)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync(ct);
 
             return (items, total);
         }
+
 
 
         //public async Task<Transaction> GetByIdAsync(string id)

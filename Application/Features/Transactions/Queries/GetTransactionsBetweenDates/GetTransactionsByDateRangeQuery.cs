@@ -11,4 +11,8 @@ public class GetTransactionsByDateRangeQuery : IRequest<PaginatedList<Transactio
     public int PageSize { get; init; }
 
     public List<TransactionKind>? Kinds { get; init; }
+
+    public string? SortBy { get; init; }
+
+    public string SortOrder { get; init; } = "asc";
 }
