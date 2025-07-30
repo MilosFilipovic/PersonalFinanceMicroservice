@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Domain.Entities.Exceptions
+﻿namespace Domain.Entities.Exceptions
 {
     
     public class BusinessException : Exception

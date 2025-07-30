@@ -6,7 +6,6 @@ using Domain.Entities.Enums;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Numerics;
 
 public class CreateTransactionCommandHandler : IRequestHandler<CreateTransactionCommand, string>
 {

@@ -5,8 +5,7 @@ using MediatR;
 using Microsoft.Extensions.Options;
 using System.Text.RegularExpressions;
 
-public class AutoCategorizeTransactionsHandler
-    : IRequestHandler<AutoCategorizeTransactionsCommand>
+public class AutoCategorizeTransactionsHandler : IRequestHandler<AutoCategorizeTransactionsCommand>
 {
     private readonly ITransactionRepository _repo;
     private readonly List<CategorizationRule> _rules;
@@ -30,7 +29,6 @@ public class AutoCategorizeTransactionsHandler
             
             if (rule.Predicate.Contains("beneficiary-name", StringComparison.OrdinalIgnoreCase))
             {
-                // izvuci sve pojmove između '%…%'
                 var matches = Regex.Matches(rule.Predicate, "%(.+?)%");
                 foreach (Match m in matches)
                 {
@@ -46,7 +44,7 @@ public class AutoCategorizeTransactionsHandler
             }
             else if (rule.Predicate.Contains("mcc", StringComparison.OrdinalIgnoreCase))
             {
-                // uzmi broj iza '='
+                
                 var num = int.Parse(rule.Predicate
                     .Split('=')[1].Trim());
                 var targetMcc = (Mcc)num;
@@ -55,7 +53,6 @@ public class AutoCategorizeTransactionsHandler
                     t.CatCode = rule.CatCode.ToString();
                 }
             }
-            // možeš dodati još parse-loga za druge tipove pravila...
         }
 
         await _repo.SaveChangesAsync(ct);

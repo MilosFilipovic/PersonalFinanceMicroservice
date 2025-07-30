@@ -1,7 +1,6 @@
 ﻿using System.Net;
 using System.Text.Json;
 using FluentValidation;
-using Microsoft.AspNetCore.Http;
 using WebAPI.Models;
 using Domain.Entities.Exceptions;
 

@@ -91,9 +91,14 @@ builder.Services.AddScoped<ITransactionSplitRepository, TransactionSplitReposito
 
 var app = builder.Build();
 
-// (2) Uključi statične fajlove iz wwwroot
-app.UseDefaultFiles();    // traži index.html kao default
-app.UseStaticFiles();     // služi sve fajlove iz wwwroot (CSS, JS, slike...)
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
+}
+
+app.UseDefaultFiles();
+app.UseStaticFiles();     
 
 
 app.MapControllers();

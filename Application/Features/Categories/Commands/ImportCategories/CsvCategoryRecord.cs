@@ -1,6 +1,4 @@
-﻿using CsvHelper.Configuration.Attributes;
-
-namespace PersonalFinanceApp.Features.Categories.Commands.ImportCategories
+﻿namespace PersonalFinanceApp.Features.Categories.Commands.ImportCategories
 {
     public class CsvCategoryRecord
     {

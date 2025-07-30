@@ -2,7 +2,6 @@
 using Domain.Models;
 using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using System.Threading;
 
 public class CategoryRepository : ICategoryRepository
 {

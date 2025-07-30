@@ -1,5 +1,4 @@
 ﻿
-using Domain.Entities.Enums;
 using Domain.Interfaces;
 using Domain.Models;
 using MediatR;
@@ -7,8 +6,7 @@ using Domain.Entities.Exceptions;
 
 namespace Application.Features.Categories.Commands.ImportCategories;
 
-public class ImportCategoriesCommandHandler
-    : IRequestHandler<ImportCategoriesCommand, int>
+public class ImportCategoriesCommandHandler : IRequestHandler<ImportCategoriesCommand, int>
 {
     private readonly ICategoryCsvParser _parser;
     private readonly ICategoryRepository _repo;

@@ -36,14 +36,14 @@
 
 
         public async Task<(IEnumerable<Transaction> Items, int TotalCount)> GetByDateRangeAsync(
-    DateTime startDate,
-    DateTime endDate,
-    int pageNumber,
-    int pageSize,
-    List<TransactionKind>? kinds = null,
-    string? sortBy = null,
-    string sortOrder = "asc",
-    CancellationToken ct = default)
+            DateTime startDate,
+            DateTime endDate,
+            int pageNumber,
+            int pageSize,
+            List<TransactionKind>? kinds = null,
+            string? sortBy = null,
+            string sortOrder = "asc",
+            CancellationToken ct = default)
         {
             var start = startDate.Date;
             var end = endDate.Date.AddDays(1);
@@ -55,8 +55,7 @@
             if (kinds?.Any() == true)
                 query = query.Where(t => kinds.Contains(t.Kind));
 
-            // ------ SORTIRANJE ------
-            var desc = sortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase);
+            var desc = sortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase);// SORT
             if (!string.IsNullOrWhiteSpace(sortBy))
             {
                 switch (sortBy.Trim().ToLower())
@@ -77,20 +76,17 @@
                             ? query.OrderByDescending(t => t.BeneficiaryName)
                             : query.OrderBy(t => t.BeneficiaryName);
                         break;
-                    // dodaj ostala polja po potrebi...
+                    
                     default:
-                        // neprepoznato polje → default sortiranje
                         query = query.OrderByDescending(t => t.Date);
                         break;
                 }
             }
             else
             {
-                // default, ako nije zadan sortBy
                 query = query.OrderByDescending(t => t.Date);
             }
 
-            // ------ PAGINACIJA ------
             var total = await query.CountAsync(ct);
             var items = await query
                 .Skip((pageNumber - 1) * pageSize)
@@ -167,10 +163,7 @@
 
 
 
-        public Task<List<Transaction>> GetUncategorizedAsync()
-       => _context.Transactions
-             .Where(t => t.CatCode == null)
-             .ToListAsync();
+        public Task<List<Transaction>> GetUncategorizedAsync()=> _context.Transactions.Where(t => t.CatCode == null).ToListAsync();
     }
 }
 

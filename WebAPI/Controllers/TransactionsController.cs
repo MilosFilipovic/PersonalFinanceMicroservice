@@ -109,15 +109,13 @@ namespace WebAPI.Controllers
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetByDateRange(
-    [FromQuery] DateTime startDate,
-    [FromQuery] DateTime endDate,
-    [FromQuery] int pageNumber = 1,
-    [FromQuery] int pageSize = 10,
-    [FromQuery] List<TransactionKind>? kinds = null,
-
-    // <<< DODAVAMO >>>
-    [FromQuery(Name = "sort-by")] string? sortBy = null,
-    [FromQuery(Name = "sort-order")] string sortOrder = "asc"
+        [FromQuery] DateTime startDate,
+        [FromQuery] DateTime endDate,
+        [FromQuery] int pageNumber = 1,
+        [FromQuery] int pageSize = 10,
+        [FromQuery] List<TransactionKind>? kinds = null,
+        [FromQuery(Name = "sort-by")] string? sortBy = null,
+        [FromQuery(Name = "sort-order")] string sortOrder = "asc"
 )
         {
             var query = new GetTransactionsByDateRangeQuery
@@ -128,7 +126,6 @@ namespace WebAPI.Controllers
                 PageSize = pageSize,
                 Kinds = kinds,
 
-                // <<< POSTAVLJAMO >>
                 SortBy = sortBy,
                 SortOrder = sortOrder.ToLower()
             };

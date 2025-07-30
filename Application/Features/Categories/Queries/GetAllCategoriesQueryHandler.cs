@@ -20,7 +20,7 @@ public class GetAllCategoriesQueryHandler
         CancellationToken cancellationToken)
     {
         var entities = await _repo.GetAllAsync(cancellationToken);
-        // sada AutoMapper zna mapu Category → CategoryDto
+        
         return _mapper.Map<IEnumerable<CategoryDto>>(entities);
     }
 }

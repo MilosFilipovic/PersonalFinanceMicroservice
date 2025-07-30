@@ -1,11 +1,9 @@
-﻿using Application.DTOs;
-using Domain.Interfaces;
+﻿using Domain.Interfaces;
 using MediatR;
 
 namespace Application.Features.Analytics.Queries.GetSpendingAnalytics
 {
-    public class GetSpendingAnalyticsQueryHandler
-        : IRequestHandler<GetSpendingAnalyticsQuery, SpendingAnalyticsResponse>
+    public class GetSpendingAnalyticsQueryHandler : IRequestHandler<GetSpendingAnalyticsQuery, SpendingAnalyticsResponse>
     {
         private readonly ITransactionRepository _txRepo;
         private readonly ICategoryRepository _catRepo;
@@ -30,7 +28,7 @@ namespace Application.Features.Analytics.Queries.GetSpendingAnalytics
                         ? DateTime.SpecifyKind(request.EndDate.Value, DateTimeKind.Utc)
                         : (DateTime?)null;
 
-            //  Transakcije sa filterima
+            
             var txs = await _txRepo.GetForAnalyticsAsync(
                 categoryCode: request.CategoryCode,
                 startDate: startUtc,
@@ -38,9 +36,7 @@ namespace Application.Features.Analytics.Queries.GetSpendingAnalytics
                 direction: request.Direction,
                 ct: ct);
 
-            
 
-            // Grupisanje i sumiranje
             var result = txs
                     .GroupBy(t =>
                     {
@@ -57,8 +53,7 @@ namespace Application.Features.Analytics.Queries.GetSpendingAnalytics
                     .OrderByDescending(g => g.Amount)
                     .ToList();
 
-            // wrap
-            return new SpendingAnalyticsResponse(result);
+            return new SpendingAnalyticsResponse(result);            // wrap
         }
 
         

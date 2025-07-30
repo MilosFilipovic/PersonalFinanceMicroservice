@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Domain.Interfaces;
+﻿using Domain.Interfaces;
 
 namespace Infrastructure.Persistence
 {

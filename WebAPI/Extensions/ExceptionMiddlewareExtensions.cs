@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-
-namespace WebAPI.Extensions
+﻿namespace WebAPI.Extensions
 {
     public static class ExceptionMiddlewareExtensions
     {

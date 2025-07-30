@@ -1,5 +1,4 @@
-﻿using Application.DTOs;
-using Domain.Entities.Enums;
+﻿using Domain.Entities.Enums;
 using MediatR;
 
 namespace Application.Features.Analytics;

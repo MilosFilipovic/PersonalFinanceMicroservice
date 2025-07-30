@@ -1,4 +1,4 @@
-﻿/* ─── Osnovni font i pozadina ─── */
+﻿
 body {
     font-family: 'Segoe UI', sans-serif;
     background-color: #f8f9fa;
@@ -7,43 +7,43 @@ body {
     padding: 0;
 }
 
-/* ─── Glavni header (ako imas jedan) ─── */
+
 header, .navbar {
     background-color: #ffffff !important;
     border-bottom: 1px solid #dee2e6;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* ─── Tabela ─── */
+
 .table {
     border-collapse: separate;
     border-spacing: 0;
     
 }
 
-    .table thead th {
-        background-color: #343a40;
-        color: #ffffff;
-        text-transform: uppercase;
-        font-weight: 600;
-        font-size: 0.9rem;
-        letter-spacing: 0.5px;
-    }
+.table thead th {
+    background-color: #343a40;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
 
-    .table tbody td {
-        padding: 0.75rem 0.75rem;
-        vertical-align: middle;
-    }
+.table tbody td {
+    padding: 0.75rem 0.75rem;
+    vertical-align: middle;
+}
 
-    .table tbody tr:nth-child(even) {
-        background-color: #e9ecef;
-    }
+.table tbody tr:nth-child(even) {
+    background-color: #e9ecef;
+}
 
-    .table tbody tr:hover {
-        background-color: #dee2e6;
-    }
+.table tbody tr:hover {
+    background-color: #dee2e6;
+}
 
-/* ─── Form Controls ─── */
+
 .form-control {
     border-radius: 0.25rem;
     border: 1px solid #ced4da;
@@ -63,7 +63,7 @@ header, .navbar {
 
 
 
-/* ─── Dugmad ─── */
+
 .btn {
     border-radius: 0.25rem;
     font-weight: 500;
@@ -72,37 +72,37 @@ header, .navbar {
     background-color: #bf77f6 !important; 
 }
 
-    .btn:hover, .btn:focus {
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transform: translateY(-1px);
-    }
+.btn:hover, .btn:focus {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+}
 
-    .btn:active {
-        transform: translateY(0);
-    }
+.btn:active {
+    transform: translateY(0);
+}
 
-/* ─── Paginacija ─── */
+
 .pagination {
     margin: 0;
 }
 
-    .pagination .page-link {
-        color: #343a40;
-        border-radius: 0.25rem;
-        transition: background-color 0.2s, color 0.2s;
-    }
+.pagination .page-link {
+    color: #343a40;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s, color 0.2s;
+}
 
-    .pagination .page-item.active .page-link {
-        background-color: #343a40;
-        border-color: #343a40;
-        color: #fff;
-    }
+.pagination .page-item.active .page-link {
+    background-color: #343a40;
+    border-color: #343a40;
+    color: #fff;
+}
 
-    .pagination .page-link:hover {
-        background-color: #f1f1f1;
-    }
+.pagination .page-link:hover {
+    background-color: #f1f1f1;
+}
 
-/* ─── Dropdown akcije (tagovi) ─── */
+
 .dropdown-menu {
     border-radius: 0.25rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -116,7 +116,7 @@ header, .navbar {
         background-color: #f8f9fa;
     }
 
-/* ─── Sitni utiliti ─── */
+
 .text-center {
     text-align: center !important;
 }
@@ -125,7 +125,7 @@ header, .navbar {
     vertical-align: middle !important;
 }
 
-/* ─── Kartice za transakcije ───*/ 
+ 
 .transaction-card {
     border: 1px solid #dee2e6;
     border-radius: 0.5rem;
@@ -135,30 +135,30 @@ header, .navbar {
 
 
 
-     /*Sredimo malo tipografiju i spacing*/ 
-    .transaction-card small {
-        display: block;
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 0.25rem;
-        color: #6c757d;
-    }
+ 
+.transaction-card small {
+    display: block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+    color: #6c757d;
+}
 
-    .transaction-card .row > [class*="col-"] > div {
-        font-size: 0.9rem;
-        font-weight: 500;
-        color: #343a40;
-    }
-
-
+.transaction-card .row > [class*="col-"] > div {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #343a40;
+}
 
 
 
 
 
 
-/* ─── Container sekcije ─── */
+
+
+
 .card.mb-4.p-3 {
     background-color: #ffffff;
     border: 1px solid #dee2e6;
@@ -169,144 +169,144 @@ header, .navbar {
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-    /* ─── Naslov sekcije ─── */
-    .card.mb-4.p-3 .card-title {
-        font-size: 1.25rem;
-        margin-bottom: 1rem;
-        color: #343a40;
-        text-align: center;
-        letter-spacing: 0.5px;
-    }
 
-    /* ─── Labeli ─── */
-    .card.mb-4.p-3 .form-label {
-        font-weight: 500;
-        color: #495057;
-    }
+.card.mb-4.p-3 .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #343a40;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
 
-    /* ─── Input i Select ─── */
-    .card.mb-4.p-3 .form-control,
-    .card.mb-4.p-3 .form-select {
-        border-radius: 0.375rem;
-        border: 1px solid #ced4da;
-        padding: 0.5rem 0.75rem;
-        transition: border-color 0.2s, box-shadow 0.2s;
-    }
 
-        .card.mb-4.p-3 .form-control:focus,
-        .card.mb-4.p-3 .form-select:focus {
-            border-color: #6c63ff;
-            box-shadow: 0 0 0 0.2rem rgba(108,99,255,0.25);
-        }
+.card.mb-4.p-3 .form-label {
+    font-weight: 500;
+    color: #495057;
+}
 
-    /* ─── Dugme “Assign Category” ─── */
-    .card.mb-4.p-3 #assignBtn {
-        background: #fff;
-        border: none;
-        color: #fff;
-        font-weight: 600;
-        padding: 0.6rem;
-        border-radius: 0.375rem;
-        transition: transform 0.1s, box-shadow 0.2s;
-    }
 
-        .card.mb-4.p-3 #assignBtn:hover {
-            box-shadow: 0 6px 16px rgba(108,99,255,0.3);
-            transform: translateY(-2px);
-        }
+.card.mb-4.p-3 .form-control,
+.card.mb-4.p-3 .form-select {
+    border-radius: 0.375rem;
+    border: 1px solid #ced4da;
+    padding: 0.5rem 0.75rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
 
-        .card.mb-4.p-3 #assignBtn:active {
-            transform: translateY(0);
-        }
+.card.mb-4.p-3 .form-control:focus,
+.card.mb-4.p-3 .form-select:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 0.2rem rgba(108,99,255,0.25);
+}
+
+
+.card.mb-4.p-3 #assignBtn {
+    background: #fff;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.6rem;
+    border-radius: 0.375rem;
+    transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.card.mb-4.p-3 #assignBtn:hover {
+    box-shadow: 0 6px 16px rgba(108,99,255,0.3);
+    transform: translateY(-2px);
+}
+
+.card.mb-4.p-3 #assignBtn:active {
+    transform: translateY(0);
+}
 
 .col-lg-4 > .card.mb-4.p-3 {
     max-width: none;
     margin: 0;
 }
 
-/* 1) Pozadina cele stranice */
+
 body {
-    background-color: #fff; /* svetlo-tirkizna, možeš promeniti po želji */
+    background-color: #fff; 
 }
 
 
 
-    /* Sidebar linkovi—tekst #fff i sa !important */
-    #sidebar .nav-link {
-        color: #fff !important; /* slova u #fff */
-    }
 
-        /* Kad hoćeš hover ili active, da se vidi i tada */
-        #sidebar .nav-link:hover,
-        #sidebar .nav-link.active {
-            color: #fff !important;
-            background-color: rgba(0,0,0,0.1) !important; /* blagi kontrastni hover */
-        }
+#sidebar .nav-link {
+    color: #fff !important; 
+}
 
-/* ─── Sidebar dark background + white links ─── */
+
+#sidebar .nav-link:hover,
+#sidebar .nav-link.active {
+    color: #fff !important;
+    background-color: rgba(0,0,0,0.1) !important;
+}
+
+
 #sidebar {
-    background-color: #dfc5de !important; /* tamna ljubičasta */
+    background-color: #dfc5de !important; 
 }
 
-    #sidebar .nav-link {
-        color: #fff !important; /* bela slova */
-    }
+#sidebar .nav-link {
+    color: #fff !important; 
+}
 
-        #sidebar .nav-link:hover,
-        #sidebar .nav-link.active {
-            background-color: #5848b0 !important; /* malo tamniji hover */
-            color: #fff !important;
-        }
+#sidebar .nav-link:hover,
+#sidebar .nav-link.active {
+    background-color: #5848b0 !important; 
+    color: #fff !important;
+}
 
-/* ─── Boja desnih sekcija ─── */
+
 .col-md-4 .card.mb-4.p-3 {
     background-color: #dfc5de !important;
 }
 
-/* Opcionalno: prilagodi i granicu da bolje stane uz novu boju */
+
 .col-md-4 .card.mb-4.p-3 {
     border-color: rgba(0,0,0,0.1) !important;
 }
 
-/* 1) Reset card-body na block (da ne gura .row u flex) */
+
 .transaction-card .card-body {
     display: block !important;
     padding: 0.75rem 1rem;
 }
 
-    /* 2) Flex‑row koji drži sve stupce */
-    .transaction-card .card-body .row {
-        display: flex !important;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: nowrap;
-        margin: 0;
-        gap: 1rem; /* umjesto gx-2 */
-    }
 
-        /* 3) Osnovni styling za svaki stupac */
-        .transaction-card .card-body .row > div {
-            min-width: 0; /* dozvoljava koloni da se suzi ispod sadržaja ako treba */
-            text-align: center;
-        }
+.transaction-card .card-body .row {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 0;
+    gap: 1rem; 
+}
 
-            /* 4) Prvi stupac (ID) bude auto‑width, taman koliko mu treba */
-            .transaction-card .card-body .row > div:first-child {
-                flex: 0 0 auto;
-            }
 
-            /* 5) Sve ostale kolone dijele po jedan “dio” slobodnog prostora */
-            .transaction-card .card-body .row > div:not(:first-child) {
-                flex: 1 1 0;
-            }
+.transaction-card .card-body .row > div {
+    min-width: 0; 
+    text-align: center;
+}
 
-/* 6) Za beneficiary i description daju malo više prostora i lijevo poravnanje */
+
+.transaction-card .card-body .row > div:first-child {
+    flex: 0 0 auto;
+}
+
+
+.transaction-card .card-body .row > div:not(:first-child) {
+    flex: 1 1 0;
+}
+
+
 .transaction-card .tx-beneficiary,
 .transaction-card .tx-desc {
-    flex: 2 1 0; /* dvostruki “dio” prostora */
+    flex: 2 1 0; 
     text-align: left;
-    white-space: normal; /* dozvoljava wrap */
-    padding: 15px; /* po originalu */
+    white-space: normal; 
+    padding: 15px; 
 }
 
 

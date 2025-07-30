@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using PersonalFinanceApp.Features.Categories.Commands.ImportCategories;
+﻿using PersonalFinanceApp.Features.Categories.Commands.ImportCategories;
 
 public interface ICategoryCsvParser
 {

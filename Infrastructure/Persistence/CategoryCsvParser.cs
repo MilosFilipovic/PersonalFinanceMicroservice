@@ -1,8 +1,5 @@
-﻿using Application.Features.Categories.Commands.ImportCategories;
-using Application.Features.Transactions.Commands.ImportTransactions;
-using CsvHelper;
+﻿using CsvHelper;
 using CsvHelper.Configuration;
-using PersonalFinanceApp.Features.Categories;
 using PersonalFinanceApp.Features.Categories.Commands.ImportCategories;
 using System.Globalization;
 

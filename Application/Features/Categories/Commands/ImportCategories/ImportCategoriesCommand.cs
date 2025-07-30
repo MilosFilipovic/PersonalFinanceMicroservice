@@ -1,4 +1,4 @@
-﻿// Features/Categories/ImportCategoriesCommand.cs
+﻿
 using MediatR;
 
 public class ImportCategoriesCommand : IRequest<int>

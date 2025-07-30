@@ -10,22 +10,17 @@ public class GetTransactionsByDateRangeQueryHandler : IRequestHandler<GetTransac
     private readonly ITransactionRepository _repository;
     private readonly IMapper _mapper;
 
-    public GetTransactionsByDateRangeQueryHandler(
-        ITransactionRepository repository,
-        IMapper mapper)
+    public GetTransactionsByDateRangeQueryHandler(ITransactionRepository repository, IMapper mapper)
     {
         _repository = repository;
         _mapper = mapper;
     }
 
-    public async Task<PaginatedList<TransactionDto>> Handle(
-    GetTransactionsByDateRangeQuery request,
-    CancellationToken cancellationToken)
+    public async Task<PaginatedList<TransactionDto>> Handle(GetTransactionsByDateRangeQuery request, CancellationToken cancellationToken)
     {
         var startUtc = DateTime.SpecifyKind(request.StartDate, DateTimeKind.Utc);
         var endUtc = DateTime.SpecifyKind(request.EndDate, DateTimeKind.Utc);
 
-        // *** Proslijedi i sortBy + sortOrder ***
         var (entities, totalCount) = await _repository
             .GetByDateRangeAsync(
                 startUtc,

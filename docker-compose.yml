@@ -1,0 +1,29 @@
+﻿version: "3.8"
+
+services:
+  db:
+    image: postgres:14
+    container_name: pg-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgre
+      POSTGRES_DB: aa_asee
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  web:
+    build: .
+    container_name: web-app
+    depends_on:
+      - db
+    environment:
+      # .NET Core mapira __ u :
+      ConnectionStrings__PostgresConnection: "Host=db;Port=5432;Database=aa_asee;Username=postgres;Password=postgre;"
+      ASPNETCORE_ENVIRONMENT: "Development"
+    ports:
+      - "5000:80"
+
+volumes:
+  pgdata:

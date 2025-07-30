@@ -21,17 +21,12 @@ namespace Application.Mappings
                     dto.BeneficiaryName,
                     dto.Description
                     
-                    )).ForMember(
-                dto => dto.CatCode,
-                opt => opt.MapFrom(src => src.CatCode)
-            );
+                    )).ForMember(dto => dto.CatCode, opt => opt.MapFrom(src => src.CatCode));
 
             CreateMap<Transaction, TransactionDto>();
 
             CreateMap<TransactionSplit, SplitItemDto>();
-            CreateMap<Transaction, TransactionDto>()
-                .ForMember(d => d.Splits,
-                           opt => opt.MapFrom(s => s.Splits));
+            CreateMap<Transaction, TransactionDto>().ForMember(d => d.Splits, opt => opt.MapFrom(s => s.Splits));
 
             CreateMap<Category, CategoryDto>();
         }
